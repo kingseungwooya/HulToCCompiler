@@ -1,4 +1,4 @@
-# HutToCCompiler
+# HulToCCompiler
 임의로 만든 Hul언어를 C언어로 컴파일하는 프로그램(using javac)
 
 OS: Window 10
