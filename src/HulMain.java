@@ -2,26 +2,25 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Scanner;
 
-public class Test {
+public class HulMain {
     public static void main(String[] args) {
+
         String msg = "Hul<";
-        HulToC hulToC=null;
-        Pattern pattern = Pattern.compile("Hul*");
-        Matcher matcher = pattern.matcher(msg);
-        System.out.println(matcher.find());
+        HulToC hulToC;
 
         //읽어오기
-        String filePath = "test5.hul";
+        Scanner sc = new Scanner(System.in);
+        //입력 로컬경로에 있는 .hul파일만 입력 가능 !!!
+        String filePath = sc.nextLine();
+        // String filePath = "test5.hul";
         try(FileInputStream stream = new FileInputStream(filePath)){
             byte[] rb = new byte[stream.available()];
             ///file이 끝에 도달하면 -1반환
             while(stream.read(rb)!=-1){}
             msg = new String(rb);
-            //파일 제대로 읽어오는지 확인
-            System.out.println(msg);
+
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
